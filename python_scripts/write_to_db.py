@@ -11,29 +11,29 @@ DROP TABLE IF EXISTS Suburb;
 
 CREATE TABLE Schools (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-    name TEXT,
-    address_line TEXT,
-    suburb_id INTEGER,
-    state_id INTEGER,
+    name TEXT NOT NULL,
+    address_line TEXT NOT NULL,
+    suburb_id INTEGER NOT NULL,
+    state_id INTEGER NOT NULL,
     website TEXT,
     email TEXT,
     working_hours TEXT,
     person TEXT,
     details TEXT,
     social_media TEXT,
-    active BOOLEAN
+    active BOOLEAN NOT NULL
 );
 
 CREATE TABLE State (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-    name TEXT UNIQUE
+    name TEXT NOT NULL UNIQUE 
 );
 
 CREATE TABLE Suburb (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-    name TEXT UNIQUE,
-    postcode TEXT,
-    state_id INTEGER
+    name TEXT NOT NULL UNIQUE,
+    postcode TEXT NOT NULL,
+    state_id INTEGER NOT NULL
 );
 ''')
 
