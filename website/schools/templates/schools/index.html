@@ -23,7 +23,7 @@
         <tr>
           <td>{{ school.name }}</td>
           <td>{{ school.address_line }} {{ school.suburb }}</td>
-          <td>{{ school.website }}</td>
+          <td><a href='http://{{school.website}}' target="_blank">{{ school.website }}</a></td>
           <td>{{ school.working_hours }}</td>
           <td>{{ school.details }}</td>
         </tr>
