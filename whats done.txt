@@ -9,7 +9,8 @@ Django framework
 - migrations
 - Django ORM(object-relational mapping layer)
 - admin (superuser)
-- filters
+- django-filters2
+
 
 HTML
 CSS

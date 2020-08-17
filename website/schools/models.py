@@ -21,7 +21,7 @@ class Suburb(models.Model):
         db_table = 'suburbs'
 
     def __str__(self):
-        return f"{self.name} {self.state}"
+        return f"{self.name} {self.state} {self.postcode}"
 
 class School(models.Model):
     name = models.CharField(max_length=128)
