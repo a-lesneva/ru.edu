@@ -4,6 +4,7 @@ from .models import State, Suburb, School
 from .filters import SchoolFilter
 
 def filter_schools(request):
+    #schools_list = School.objects.filter(correct=True)
     schools_list = School.objects.all()
     school_filter = SchoolFilter(request.GET, queryset = schools_list)
     has_filter = any(field in request.GET for field in set(school_filter.get_fields()))

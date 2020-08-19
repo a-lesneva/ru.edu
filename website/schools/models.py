@@ -8,26 +8,26 @@ class State(models.Model):
         return self.name
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'states'
 
 class Suburb(models.Model):
     name = models.CharField(max_length=64)
     postcode = models.CharField(max_length=4)
-    state = models.ForeignKey(State, on_delete=models.CASCADE)
+    state = models.ForeignKey(State, on_delete=models.CASCADE, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'suburbs'
 
     def __str__(self):
         return f"{self.name} {self.state} {self.postcode}"
 
 class School(models.Model):
-    name = models.CharField(max_length=128)
+    name = models.CharField(max_length=200)
     address_line = models.CharField(max_length=64)
-    suburb = models.ForeignKey(Suburb, on_delete=models.CASCADE)
-    state = models.ForeignKey(State, on_delete=models.CASCADE)
+    suburb = models.ForeignKey(Suburb, on_delete=models.CASCADE, null=True)
+    state = models.ForeignKey(State, on_delete=models.CASCADE, null=True)
     website = models.URLField(blank=True)
     email = models.EmailField(blank=True)
     working_hours = models.CharField(max_length=64, blank=True)
@@ -35,9 +35,12 @@ class School(models.Model):
     details = models.TextField(blank=True)
     social_media = models.URLField(blank=True)
     active = models.BooleanField()
+    checked = models.BooleanField(default=False)
+    correct = models.BooleanField(default=False)
+    google_map_link = models.URLField(null=True, blank=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'schools'
 
     def __str__(self):

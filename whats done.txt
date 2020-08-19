@@ -3,7 +3,7 @@ Regex for html parsing
 Writing/Reading JSON
 SQLite3 DB
 Django framework
-- templates
+- templates  (Jinja)
 - static files (CSS)
 - models
 - migrations
@@ -14,4 +14,6 @@ Django framework
 
 HTML
 CSS
+Bootstrap4
+
 

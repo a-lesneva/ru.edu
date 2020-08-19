@@ -1,11 +1,11 @@
 {% extends "schools/layout.html" %}
 
 {% block body %}
-<main role="main" class="container">
-    <h1>Русские школы в Австралии</h1>
+
+<div class="container">
     <form method="GET">
-      <div> {{ filter.form.as_p }}</div>
-      <button type="submit" class="btn btn-primary">Поиск</button>
+      <div>{{ filter.form.as_p }}</div>
+      <button type="submit" class="btn btn-success mb-2 mr-sm-2">Поиск</button>
       {% if has_filter %}
         <a href="{% url 'schools:index' %}">Показать все школы</a>
       {% endif %}
@@ -15,6 +15,7 @@
         <th>Название</th>
         <th>Адрес</th>
         <th>Сайт</th>
+        <th>Соц. сети</th>
         <th>Часы работы</th>
         <th>Программа</th>
       </thead>
@@ -22,15 +23,20 @@
         {% for school in filter.qs %}
         <tr>
           <td>{{ school.name }}</td>
-          <td>{{ school.address_line }} {{ school.suburb }}</td>
-          <td>{{ school.website }}</td>
+          {% if school.google_map_link %}
+            <td><a href="{{ school.google_map_link }}" target="_blank">{{ school.address_line }}, {{ school.suburb }}</a></td>
+          {% else %}
+            <td>{{ school.address_line }}, {{ school.suburb }}</td>
+          {% endif %}
+          <td><a href="{{ school.website }}" target="_blank">{{ school.website }}</a></td>
+          <td><a href="{{ school.social_media}}" target="_blank">Facebook</a></td>
           <td>{{ school.working_hours }}</td>
           <td>{{ school.details }}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-</main>
+  </div>
 
 
 {% endblock %}
