@@ -9,7 +9,7 @@ def filter_schools(request):
     school_filter = SchoolFilter(request.GET, queryset = schools_list)
     has_filter = any(field in request.GET for field in set(school_filter.get_fields()))
     
-    return render(request, 'schools/index.html', {
+    return render(request, 'index.html', {
         'filter': school_filter,
         'has_filter': has_filter
         })
