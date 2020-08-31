@@ -36,12 +36,19 @@
         {% for school in filter.qs %}
         <tr>
           <td>{{ school.name }}</td>
+
           {% if school.google_map_link %}
             <td><a href="{{ school.google_map_link }}" target="_blank">{{ school.address_line }}, {{ school.suburb }}</a></td>
           {% else %}
             <td>{{ school.address_line }}, {{ school.suburb }}</td>
           {% endif %}
+
+          {% if school.website %}
           <td><a href="{{ school.website }}" target="_blank">{{ school.website }}</a></td>
+          {% else %}
+            <td></td>
+          {% endif %}
+          
           <td><a href="{{ school.social_media}}" target="_blank">Facebook</a></td>
           <td>{{ school.working_hours }}</td>
           <td>{{ school.details }}</td>
