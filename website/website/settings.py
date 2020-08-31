@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
+from pathlib import Path, os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -32,9 +32,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django_filters',
-    'website.apps.main',
+    'widget_tweaks',
+
+    'website',
+    # 'website.apps.main',
     'website.apps.schools',
-    'website.apps.users',
+    # 'website.apps.users',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,9 +83,17 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'schoolsdb.sqlite',
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': BASE_DIR / 'schoolsdb.sqlite',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'website_local',
+    #     'USER': 'admin',
+    #     'PASSWORD': 'admin123',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
+    # }
 }
 
 
@@ -122,3 +134,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Add static file directory
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)

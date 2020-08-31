@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    font-family: 'Aleo';
+}
+
+.jumbotron {
+    background-color: azure;
+}
+
+h1 {
+    color: green;
+}
+
+#content {
+    font-size: 14px ;
+}
+
+#search {
+    font-size: 14px ;
+}

@@ -1,15 +1,28 @@
 {% extends "layout.html" %}
 
+{% load widget_tweaks %}
+
 {% block body %}
 
-<div class="container">
-    <form method="GET">
-      <div>{{ filter.form.as_p }}</div>
-      <button type="submit" class="btn btn-success mb-2 mr-sm-2">Поиск</button>
+<div class="container" id="content">
+  <div>
+    <!-- filter for a school search -->
+    <form class="form-inline" method="GET">
+
+      {{ filter.form.name.label_tag }}
+      {% render_field filter.form.name class="m-2" %}
+
+      {{ filter.form.state.label_tag }}
+      {% render_field filter.form.state class="m-2" %}
+
+      <button type="submit" class="btn btn-success m-2" id="search">Поиск</button>
+
       {% if has_filter %}
-        <a href="{% url 'schools:index' %}">Показать все школы</a>
+        <a class="m-2" href="{% url 'schools:schools' %}">Показать все школы</a>
       {% endif %}
+    
     </form>
+  </div>
     <table class="table">
       <thead>
         <th>Название</th>

@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-app_name='main'
+# app_name='main'
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('website.apps.main.urls')),
-    path('schools/', include('website.apps.schools.urls')),
+    # path('', include('website.apps.main.urls')),
+    # main page is school search for now 
+    path('', include('website.apps.schools.urls')),
     path('users/', include('website.apps.users.urls'))
 ]
