@@ -1,0 +1,13 @@
+asgiref==3.2.10
+# Django 
+Django==3.1
+# filters
+django-filter==2.3.0
+# django forms
+django-widget-tweaks==1.4.8
+# WSGI
+gunicorn==20.0.4
+# PostgreSQL
+psycopg2-binary==2.8.5
+pytz==2020.1
+sqlparse==0.3.1
