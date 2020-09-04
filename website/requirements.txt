@@ -1,6 +1,8 @@
 asgiref==3.2.10
 # Django 
 Django==3.1
+# to manage env variables for settings.py
+django-environ==0.4.5
 # filters
 django-filter==2.3.0
 # django forms
