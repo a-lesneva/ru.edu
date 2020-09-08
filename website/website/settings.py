@@ -30,8 +30,8 @@ SECRET_KEY = env.str('SECRET_KEY')
 
 DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
-
+#ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.str('ALLOWED_HOSTS')
 
 # Application definition
 
@@ -137,6 +137,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Add static file directory
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Add static file directory
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+
 )
