@@ -46,10 +46,15 @@
           {% if school.website %}
           <td><a href="{{ school.website }}" target="_blank">{{ school.website }}</a></td>
           {% else %}
-            <td></td>
+            <td>-</td>
           {% endif %}
-          
+
+          {% if school.social_media %}
           <td><a href="{{ school.social_media}}" target="_blank">Facebook</a></td>
+          {% else %}
+            <td>-</td>
+          {% endif %}
+        
           <td>{{ school.working_hours }}</td>
           <td>{{ school.details }}</td>
         </tr>
