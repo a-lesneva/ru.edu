@@ -3,6 +3,6 @@ from . import views
 
 app_name = 'schools'
 urlpatterns = [
-    path('', views.filter_schools, name = 'schools')
+    path('', views.SchoolListView.as_view(), name = 'schools')
    
 ]
