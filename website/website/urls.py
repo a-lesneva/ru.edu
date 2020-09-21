@@ -16,11 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from website.apps.schools.sitemaps import SchoolsViewSitemap
+from django.contrib.sitemaps.views import sitemap
+
 # app_name='main'
+
+sitemaps = {
+    'schools_list': SchoolsViewSitemap
+}
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('website.apps.main.urls')),
     # main page is school search for now 
     path('', include('website.apps.schools.urls')),
-    path('users/', include('website.apps.users.urls'))
+    path('users/', include('website.apps.users.urls')),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps})
 ]
