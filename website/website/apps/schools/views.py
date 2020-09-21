@@ -11,7 +11,12 @@ class SchoolListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['filter'] = SchoolFilter(self.request.GET, queryset=self.get_queryset())
+
+        school_filter = SchoolFilter(self.request.GET, queryset = self.get_queryset())
+        has_filter = any(field in self.request.GET for field in set(school_filter.get_fields()))
+        
+        context['filter'] = school_filter
+        context['has_filter'] = has_filter
         return context
 
 
