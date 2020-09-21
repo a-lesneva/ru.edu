@@ -43,3 +43,6 @@ class School(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+    def get_absolute_url(self):
+        return '/school/%i' % self.id
